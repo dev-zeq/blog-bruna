@@ -32,7 +32,8 @@ Hospedado em `blog.brunaoliveira.com.br` via GitHub Pages.
 
 ## Temas em preparação
 
-- 🥗 Alimentação & Nutrição
+- 🥗 Alimentação & Receitas Naturais
+- 🌿 Medicina Natural & Integrativa
 - 🏃‍♀️ Movimento & Treino
 - 😴 Sono & Recuperação
 - 🧘‍♀️ Bem-estar & Mente
