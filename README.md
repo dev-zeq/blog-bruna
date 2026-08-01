@@ -1,11 +1,14 @@
-# Blog Bruna Oliveira — Saúde & Microbioma
+# Blog Bruna Oliveira — Blog pessoal de saúde
 
-Blog de nicho lusófono sobre saúde intestinal, microbioma e protocolos de fermentação caseira (Dr. William Davis / Super Gut), hospedado em `blog.brunaoliveira.com.br` via GitHub Pages.
+Blog pessoal da Bruna Oliveira: um espaço onde ela compartilha seus conhecimentos e estudos sobre saúde, para ajudar leitores a terem uma vida mais saudável. O blog abre com o tema **microbioma e saúde intestinal**, e está em expansão (alimentação, movimento, sono e bem-estar em preparação).
+
+Hospedado em `blog.brunaoliveira.com.br` via GitHub Pages.
 
 ## Estrutura
 
 ```
-├── index.html              # Página inicial (lista de posts + categorias)
+├── index.html              # Página inicial (hero, artigos, categorias, sobre, próximos temas)
+├── sobre.html              # Página "Sobre mim" (apresentação da autora)
 ├── css/style.css           # Estilos do blog
 ├── js/main.js              # Interações (menu mobile, âncoras)
 ├── posts/                  # Páginas de cada artigo
@@ -19,7 +22,7 @@ Blog de nicho lusófono sobre saúde intestinal, microbioma e protocolos de ferm
 3. Adicione o card do post no `index.html`
 4. Faça commit e push — o GitHub Pages publica automaticamente
 
-## Categorias
+## Categorias (fase atual: saúde intestinal)
 
 1. **Ciência do Microbioma** — disbiose, SIBO, endotoxemia por LPS, eixo intestino-cérebro
 2. **Fermentados & Super-Iogurte** — receitas, tutoriais, equipamentos
@@ -27,9 +30,16 @@ Blog de nicho lusófono sobre saúde intestinal, microbioma e protocolos de ferm
 4. **Estética & Performance** — pele, massa muscular via microbioma
 5. **Estilo de Vida & Protocolos** — guias de implementação e revisões
 
+## Temas em preparação
+
+- 🥗 Alimentação & Nutrição
+- 🏃‍♀️ Movimento & Treino
+- 😴 Sono & Recuperação
+- 🧘‍♀️ Bem-estar & Mente
+
 ## DNS (Registro.br)
 
-No painel do Registro.br, na zona DNS do domínio `brunaoliveira.com.br`, adicionar:
+No painel do Registro.br, na zona DNS do domínio `brunaoliveira.com.br`:
 
 ```
 CNAME  blog  →  dev-zeq.github.io
