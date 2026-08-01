@@ -153,11 +153,13 @@ a:hover { text-decoration: underline; }
 
 /* ---------- Grid de posts ---------- */
 .posts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 22px;
 }
 .post-card {
+  width: calc((100% - 44px) / 3);
   background: var(--branco);
   border: 1px solid var(--borda);
   border-radius: var(--radius);
@@ -168,6 +170,8 @@ a:hover { text-decoration: underline; }
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 .post-card:hover { transform: translateY(-3px); box-shadow: var(--sombra-hover); text-decoration: none; }
+
+.posts-grid-largo .post-card { width: 100%; }
 
 .post-card .meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .tag {
@@ -324,7 +328,12 @@ a:hover { text-decoration: underline; }
 .copyright { margin-top: 10px; }
 
 /* ---------- Responsivo ---------- */
+@media (max-width: 960px) {
+  .post-card { width: calc((100% - 22px) / 2); }
+}
+
 @media (max-width: 720px) {
+  .post-card { width: 100%; }
   .nav-toggle { display: block; }
   .nav-links {
     display: none;
