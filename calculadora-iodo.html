@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Iodo (Lugol) · Blog Bruna Oliveira</title>
+    <meta name="description" content="Calcule quantas gotas de Lugol usar para ajustar sua dose diária de iodo, conforme a concentração da solução.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💧</text></svg>">
+    <style>
+        /* ---------- Página da calculadora ---------- */
+        .calc-hero {
+            background: linear-gradient(135deg, var(--verde-900) 0%, var(--verde-700) 60%, var(--verde-600) 100%);
+            color: var(--branco);
+            padding: 40px 0 76px;
+            text-align: center;
+        }
+        .calc-hero .trilha {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 14px;
+        }
+        .calc-hero .trilha a { color: rgba(255, 255, 255, 0.85); }
+        .calc-hero .trilha a:hover { color: var(--branco); }
+        .calc-hero .icone {
+            font-size: 34px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .calc-hero h1 {
+            font-family: var(--font-titulo);
+            font-weight: 700;
+            font-size: clamp(1.6rem, 4vw, 2.1rem);
+            margin-bottom: 10px;
+        }
+        .calc-hero p {
+            max-width: 520px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.98rem;
+        }
+
+        .calc-section {
+            padding: 0 0 64px;
+        }
+
+        .calculadora {
+            background: var(--branco);
+            border-radius: var(--radius);
+            box-shadow: var(--sombra-hover);
+            max-width: 460px;
+            width: 100%;
+            margin: -48px auto 0;
+            padding: 40px 36px;
+            border: 1px solid var(--borda);
+            position: relative;
+        }
+
+        .campo {
+            margin-bottom: 22px;
+        }
+
+        .campo label {
+            display: block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--texto-suave);
+            margin-bottom: 7px;
+            font-weight: 600;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            background: var(--verde-50);
+            border-radius: 10px;
+            border: 1px solid var(--borda);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .input-wrapper:focus-within {
+            border-color: var(--verde-600);
+            box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.12);
+        }
+
+        .input-wrapper input,
+        .input-wrapper select {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 13px 14px;
+            font-size: 15px;
+            color: var(--texto);
+            font-family: var(--font-texto);
+            outline: none;
+            width: 100%;
+        }
+
+        .input-wrapper select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%234b5563' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .input-wrapper .unidade {
+            padding-right: 14px;
+            color: var(--texto-suave);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] { -moz-appearance: textfield; }
+
+        .linha-dupla {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .btn-calcular {
+            width: 100%;
+            padding: 14px;
+            background: var(--laranja);
+            color: var(--branco);
+            border: none;
+            border-radius: 10px;
+            font-family: var(--font-texto);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            margin-top: 6px;
+            box-shadow: 0 4px 14px rgba(234, 140, 60, 0.3);
+        }
+
+        .btn-calcular:hover { background: #d97a2b; transform: translateY(-1px); }
+        .btn-calcular:active { transform: translateY(0); }
+
+        .resultado {
+            margin-top: 26px;
+            padding: 22px 20px;
+            background: var(--verde-50);
+            border-radius: 12px;
+            border: 1px solid var(--verde-100);
+            text-align: center;
+            display: none;
+        }
+
+        .resultado.visivel {
+            display: block;
+            animation: surgir 0.35s ease;
+        }
+
+        @keyframes surgir {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .resultado .label-resultado {
+            font-size: 0.72rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--texto-suave);
+            margin-bottom: 4px;
+        }
+
+        .resultado .valor-gotas {
+            font-family: var(--font-titulo);
+            font-size: 46px;
+            font-weight: 700;
+            color: var(--verde-800);
+            line-height: 1.1;
+        }
+
+        .valor-gotas span {
+            font-size: 18px;
+            font-weight: 400;
+            font-family: var(--font-texto);
+            color: var(--texto-suave);
+            margin-left: 4px;
+        }
+
+        .resultado .detalhe {
+            font-size: 13px;
+            color: var(--texto-suave);
+            margin-top: 8px;
+        }
+
+        .calc-aviso {
+            font-size: 12px;
+            margin-top: 12px;
+            padding: 7px 14px;
+            border-radius: 20px;
+            background: rgba(234, 140, 60, 0.12);
+            color: #9a5321;
+            display: inline-block;
+        }
+
+        .link-limpar {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            font-size: 12px;
+            color: var(--texto-suave);
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        .link-limpar:hover { color: var(--verde-700); }
+
+        .calc-nota {
+            max-width: 460px;
+            margin: 18px auto 0;
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--texto-suave);
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .calc-hero { padding: 32px 0 64px; }
+            .calculadora { padding: 32px 22px; margin: -40px 16px 0; width: auto; }
+            .linha-dupla { grid-template-columns: 1fr; }
+            .valor-gotas { font-size: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="nav container" aria-label="Navegação principal">
+            <a class="brand" href="index.html">
+                <span>🌿</span>
+                <span class="marca">Bruna Oliveira</span>
+                <span class="separador">·</span>
+                <span class="sub">Blog Pessoal</span>
+            </a>
+            <button class="nav-toggle" aria-expanded="false" aria-label="Abrir menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html#posts">Artigos</a></li>
+                <li><a href="index.html#categorias">Categorias</a></li>
+                <li><a href="sobre.html">Sobre mim</a></li>
+                <li><a href="index.html#newsletter">Newsletter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="calc-hero">
+        <div class="container">
+            <p class="trilha"><a href="index.html">Início</a> · Calculadora</p>
+            <div class="icone">💧</div>
+            <h1>Calculadora de Iodo (Lugol)</h1>
+            <p>Descubra quantas gotas ajustar na sua dose diária de iodo, de acordo com a concentração da solução de Lugol que você usa.</p>
+        </div>
+    </section>
+
+    <section class="calc-section">
+        <div class="container">
+            <div class="calculadora">
+                <div class="linha-dupla">
+                    <div class="campo">
+                        <label>Dose atual (mg)</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="atual" placeholder="5,0" min="0" step="0.1">
+                            <span class="unidade">mg</span>
+                        </div>
+                    </div>
+                    <div class="campo">
+                        <label>Dose desejada (mg)</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="desejada" placeholder="4,0" min="0" step="0.1">
+                            <span class="unidade">mg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label>Concentração do Lugol</label>
+                    <div class="input-wrapper">
+                        <select id="concentracao">
+                            <option value="2.5">Lugol 2% (2,5 mg iodo/gota)</option>
+                            <option value="6.25" selected>Lugol 5% (6,25 mg iodo/gota)</option>
+                            <option value="1.25">Lugol 1% (1,25 mg iodo/gota)</option>
+                            <option value="12.5">Lugol 10% (12,5 mg iodo/gota)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn-calcular" onclick="calcular()">Calcular gotas</button>
+
+                <div class="resultado" id="resultado">
+                    <div class="label-resultado">Ajuste necessário</div>
+                    <div class="valor-gotas" id="gotas">—</div>
+                    <div class="detalhe" id="detalhe"></div>
+                    <div class="calc-aviso" id="aviso"></div>
+                </div>
+
+                <span class="link-limpar" onclick="limpar()">Limpar campos</span>
+            </div>
+
+            <p class="calc-nota">⚠️ Esta calculadora tem caráter apenas informativo e não substitui orientação médica. Consulte um profissional de saúde antes de iniciar ou ajustar qualquer suplementação de iodo.</p>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="copyright">© <span data-ano>2026</span> Blog Bruna Oliveira · brunaoliveira.com.br</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script>
+        // mg de iodo por gota conforme concentração
+        const mgPorGota = {
+            '2.5': 2.5,
+            '6.25': 6.25,
+            '1.25': 1.25,
+            '12.5': 12.5
+        };
+
+        function calcular() {
+            const atual = parseFloat(document.getElementById('atual').value);
+            const desejada = parseFloat(document.getElementById('desejada').value);
+            const chave = document.getElementById('concentracao').value;
+            const mgGota = mgPorGota[chave];
+
+            const resDiv = document.getElementById('resultado');
+            const gotasEl = document.getElementById('gotas');
+            const detalheEl = document.getElementById('detalhe');
+            const avisoEl = document.getElementById('aviso');
+
+            // Ambos vazios
+            if (isNaN(atual) && isNaN(desejada)) {
+                resDiv.classList.remove('visivel');
+                alert('Preencha ao menos a dose desejada 💧');
+                return;
+            }
+
+            // Apenas dose desejada preenchida
+            if (isNaN(atual) && !isNaN(desejada)) {
+                if (desejada < 0) {
+                    resDiv.classList.remove('visivel');
+                    alert('A dose desejada deve ser positiva.');
+                    return;
+                }
+                const gotasBrutas = desejada / mgGota;
+                const gotas = Math.round(gotasBrutas * 10) / 10;
+                resDiv.classList.add('visivel');
+                gotasEl.innerHTML = `${gotas}<span>gotas/dia</span>`;
+                detalheEl.textContent = `Para uma dose diária de ${desejada} mg de iodo.`;
+                avisoEl.textContent = gotas < 1 ? '💧 Menos de 1 gota – use seringa para precisão.' : '✅ Dilua em água ou suco.';
+                return;
+            }
+
+            // Ambos preenchidos
+            if (!isNaN(atual) && !isNaN(desejada)) {
+                if (atual < 0 || desejada < 0) {
+                    resDiv.classList.remove('visivel');
+                    alert('As doses devem ser positivas.');
+                    return;
+                }
+                const diff = desejada - atual;
+                const gotasBrutas = Math.abs(diff) / mgGota;
+                const gotas = Math.round(gotasBrutas * 10) / 10;
+
+                resDiv.classList.add('visivel');
+
+                if (diff === 0) {
+                    gotasEl.innerHTML = `0<span>gotas</span>`;
+                    detalheEl.textContent = 'Sua dose já está no valor desejado ✨';
+                    avisoEl.textContent = '';
+                } else {
+                    const acao = diff > 0 ? 'adicionar' : 'reduzir';
+                    gotasEl.innerHTML = `${gotas}<span>gotas/dia</span>`;
+                    detalheEl.textContent = `Você precisa ${acao} ${Math.abs(diff).toFixed(1)} mg de iodo.`;
+                    if (gotas < 0.5) {
+                        avisoEl.textContent = '🔬 Quantidade muito pequena – avalie com seu profissional.';
+                    } else if (gotas > 10) {
+                        avisoEl.textContent = '⚠️ Ajuste grande – faça a transição gradualmente.';
+                    } else {
+                        avisoEl.textContent = '🌿 Ajuste suave. Mantenha acompanhamento profissional.';
+                    }
+                }
+                return;
+            }
+
+            // Só atual preenchido
+            if (!isNaN(atual) && isNaN(desejada)) {
+                resDiv.classList.remove('visivel');
+                alert('Informe a dose desejada para calcular o ajuste.');
+            }
+        }
+
+        function limpar() {
+            document.getElementById('atual').value = '';
+            document.getElementById('desejada').value = '';
+            document.getElementById('concentracao').value = '6.25';
+            document.getElementById('resultado').classList.remove('visivel');
+        }
+
+        // Suporte à URL (s e d)
+        window.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const s = params.get('s');
+            const d = params.get('d');
+            if (s) document.getElementById('atual').value = s;
+            if (d) document.getElementById('desejada').value = d;
+            if (s && d) calcular();
+        });
+
+        // Enter dispara cálculo
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') calcular();
+        });
+    </script>
+</body>
+</html>
