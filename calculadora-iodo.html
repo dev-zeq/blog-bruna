@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Iodo (Lugol) · Blog Bruna Oliveira</title>
-    <meta name="description" content="Calcule quantas gotas de Lugol usar para ajustar sua dose diária de iodo, conforme a concentração da solução.">
+    <meta name="description" content="Calcule quantos mg de iodo você toma por dia com Lugol, com a divisão entre iodo (I2) e iodeto, conforme a concentração e o número de gotas.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -200,6 +200,32 @@
             margin-top: 8px;
         }
 
+        .calc-breakdown {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--verde-100);
+        }
+
+        .calc-breakdown .item { text-align: center; }
+
+        .calc-breakdown .valor {
+            font-family: var(--font-titulo);
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--verde-800);
+        }
+
+        .calc-breakdown .rotulo {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--texto-suave);
+            margin-top: 2px;
+        }
+
         .calc-aviso {
             font-size: 12px;
             margin-top: 12px;
@@ -265,48 +291,48 @@
             <p class="trilha"><a href="index.html">Início</a> · Calculadora</p>
             <div class="icone">💧</div>
             <h1>Calculadora de Iodo (Lugol)</h1>
-            <p>Descubra quantas gotas ajustar na sua dose diária de iodo, de acordo com a concentração da solução de Lugol que você usa.</p>
+            <p>Descubra quantos mg de iodo você toma por dia, com a divisão entre iodo (I2) e iodeto, de acordo com a concentração do Lugol e o número de gotas.</p>
         </div>
     </section>
 
     <section class="calc-section">
         <div class="container">
             <div class="calculadora">
-                <div class="linha-dupla">
-                    <div class="campo">
-                        <label>Dose atual (mg)</label>
-                        <div class="input-wrapper">
-                            <input type="number" id="atual" placeholder="5,0" min="0" step="0.1">
-                            <span class="unidade">mg</span>
-                        </div>
-                    </div>
-                    <div class="campo">
-                        <label>Dose desejada (mg)</label>
-                        <div class="input-wrapper">
-                            <input type="number" id="desejada" placeholder="4,0" min="0" step="0.1">
-                            <span class="unidade">mg</span>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="campo">
                     <label>Concentração do Lugol</label>
                     <div class="input-wrapper">
                         <select id="concentracao">
-                            <option value="2.5">Lugol 2% (2,5 mg iodo/gota)</option>
-                            <option value="6.25" selected>Lugol 5% (6,25 mg iodo/gota)</option>
-                            <option value="1.25">Lugol 1% (1,25 mg iodo/gota)</option>
-                            <option value="12.5">Lugol 10% (12,5 mg iodo/gota)</option>
+                            <option value="2">Lugol 2%</option>
+                            <option value="5" selected>Lugol 5% (clássico)</option>
+                            <option value="7">Lugol 7%</option>
+                            <option value="46">Lugol 46% (concentrado)</option>
+                            <option value="custom">Personalizada (mg por gota)</option>
                         </select>
                     </div>
                 </div>
 
-                <button class="btn-calcular" onclick="calcular()">Calcular gotas</button>
+                <div class="campo" id="campo-custom" style="display:none;">
+                    <label>MG de iodo por gota</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="mgCustom" placeholder="6,25" min="0" step="0.01">
+                        <span class="unidade">mg/gota</span>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label>Número de gotas</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="gotasInput" placeholder="2" min="0" step="0.5">
+                        <span class="unidade">gotas</span>
+                    </div>
+                </div>
+
+                <button class="btn-calcular" onclick="calcular()">Calcular quantidade</button>
 
                 <div class="resultado" id="resultado">
-                    <div class="label-resultado">Ajuste necessário</div>
-                    <div class="valor-gotas" id="gotas">—</div>
-                    <div class="detalhe" id="detalhe"></div>
+                    <div class="label-resultado">Quantidade total de iodo</div>
+                    <div class="valor-gotas" id="totalMg">—</div>
+                    <div class="calc-breakdown" id="breakdown"></div>
                     <div class="calc-aviso" id="aviso"></div>
                 </div>
 
@@ -325,102 +351,86 @@
 
     <script src="js/main.js" defer></script>
     <script>
-        // mg de iodo por gota conforme concentração
-        const mgPorGota = {
-            '2.5': 2.5,
-            '6.25': 6.25,
-            '1.25': 1.25,
-            '12.5': 12.5
-        };
+        // Lugol clássico: 1% de concentração equivale a 1,25 mg de iodo total por gota
+        // (proporção padrão 1 iodo : 2 iodeto de potássio). Do total, ~40% fica como
+        // iodo molecular (I2) e ~60% como iodeto — proporção fixa, independe da concentração.
+        const MG_POR_GOTA_POR_PERCENTUAL = 1.25;
+        const FRACAO_I2 = 0.4;
+        const FRACAO_IODETO = 0.6;
+
+        function mgPorGotaAtual() {
+            const chave = document.getElementById('concentracao').value;
+            if (chave === 'custom') {
+                return parseFloat(document.getElementById('mgCustom').value);
+            }
+            return parseFloat(chave) * MG_POR_GOTA_POR_PERCENTUAL;
+        }
+
+        function alternarCampoCustom() {
+            const ehCustom = document.getElementById('concentracao').value === 'custom';
+            document.getElementById('campo-custom').style.display = ehCustom ? 'block' : 'none';
+        }
 
         function calcular() {
-            const atual = parseFloat(document.getElementById('atual').value);
-            const desejada = parseFloat(document.getElementById('desejada').value);
-            const chave = document.getElementById('concentracao').value;
-            const mgGota = mgPorGota[chave];
+            const gotas = parseFloat(document.getElementById('gotasInput').value);
+            const mgGota = mgPorGotaAtual();
 
             const resDiv = document.getElementById('resultado');
-            const gotasEl = document.getElementById('gotas');
-            const detalheEl = document.getElementById('detalhe');
+            const totalEl = document.getElementById('totalMg');
+            const breakdownEl = document.getElementById('breakdown');
             const avisoEl = document.getElementById('aviso');
 
-            // Ambos vazios
-            if (isNaN(atual) && isNaN(desejada)) {
+            if (isNaN(gotas) || gotas < 0) {
                 resDiv.classList.remove('visivel');
-                alert('Preencha ao menos a dose desejada 💧');
+                alert('Informe o número de gotas 💧');
                 return;
             }
 
-            // Apenas dose desejada preenchida
-            if (isNaN(atual) && !isNaN(desejada)) {
-                if (desejada < 0) {
-                    resDiv.classList.remove('visivel');
-                    alert('A dose desejada deve ser positiva.');
-                    return;
-                }
-                const gotasBrutas = desejada / mgGota;
-                const gotas = Math.round(gotasBrutas * 10) / 10;
-                resDiv.classList.add('visivel');
-                gotasEl.innerHTML = `${gotas}<span>gotas/dia</span>`;
-                detalheEl.textContent = `Para uma dose diária de ${desejada} mg de iodo.`;
-                avisoEl.textContent = gotas < 1 ? '💧 Menos de 1 gota – use seringa para precisão.' : '✅ Dilua em água ou suco.';
-                return;
-            }
-
-            // Ambos preenchidos
-            if (!isNaN(atual) && !isNaN(desejada)) {
-                if (atual < 0 || desejada < 0) {
-                    resDiv.classList.remove('visivel');
-                    alert('As doses devem ser positivas.');
-                    return;
-                }
-                const diff = desejada - atual;
-                const gotasBrutas = Math.abs(diff) / mgGota;
-                const gotas = Math.round(gotasBrutas * 10) / 10;
-
-                resDiv.classList.add('visivel');
-
-                if (diff === 0) {
-                    gotasEl.innerHTML = `0<span>gotas</span>`;
-                    detalheEl.textContent = 'Sua dose já está no valor desejado ✨';
-                    avisoEl.textContent = '';
-                } else {
-                    const acao = diff > 0 ? 'adicionar' : 'reduzir';
-                    gotasEl.innerHTML = `${gotas}<span>gotas/dia</span>`;
-                    detalheEl.textContent = `Você precisa ${acao} ${Math.abs(diff).toFixed(1)} mg de iodo.`;
-                    if (gotas < 0.5) {
-                        avisoEl.textContent = '🔬 Quantidade muito pequena – avalie com seu profissional.';
-                    } else if (gotas > 10) {
-                        avisoEl.textContent = '⚠️ Ajuste grande – faça a transição gradualmente.';
-                    } else {
-                        avisoEl.textContent = '🌿 Ajuste suave. Mantenha acompanhamento profissional.';
-                    }
-                }
-                return;
-            }
-
-            // Só atual preenchido
-            if (!isNaN(atual) && isNaN(desejada)) {
+            if (isNaN(mgGota) || mgGota <= 0) {
                 resDiv.classList.remove('visivel');
-                alert('Informe a dose desejada para calcular o ajuste.');
+                alert('Informe a concentração personalizada em mg por gota.');
+                return;
             }
+
+            const total = Math.round(gotas * mgGota * 100) / 100;
+            const i2 = Math.round(total * FRACAO_I2 * 100) / 100;
+            const iodeto = Math.round(total * FRACAO_IODETO * 100) / 100;
+
+            resDiv.classList.add('visivel');
+            totalEl.innerHTML = `${total}<span>mg/dia</span>`;
+            breakdownEl.innerHTML = `
+                <div class="item"><div class="valor">${i2}mg</div><div class="rotulo">Iodo (I2)</div></div>
+                <div class="item"><div class="valor">${iodeto}mg</div><div class="rotulo">Iodeto</div></div>
+            `;
+            avisoEl.textContent = total > 50 ? '⚠️ Dose alta – faça a transição gradualmente e acompanhe com um profissional.' : '🌿 Mantenha acompanhamento profissional ao ajustar sua dose.';
         }
 
         function limpar() {
-            document.getElementById('atual').value = '';
-            document.getElementById('desejada').value = '';
-            document.getElementById('concentracao').value = '6.25';
+            document.getElementById('concentracao').value = '5';
+            document.getElementById('mgCustom').value = '';
+            document.getElementById('gotasInput').value = '';
+            alternarCampoCustom();
             document.getElementById('resultado').classList.remove('visivel');
         }
 
-        // Suporte à URL (s e d)
+        document.getElementById('concentracao').addEventListener('change', alternarCampoCustom);
+
+        // Suporte à URL (s = concentração/força, d = gotas, c = mg/gota personalizado)
         window.addEventListener('DOMContentLoaded', function() {
             const params = new URLSearchParams(window.location.search);
             const s = params.get('s');
             const d = params.get('d');
-            if (s) document.getElementById('atual').value = s;
-            if (d) document.getElementById('desejada').value = d;
-            if (s && d) calcular();
+            const c = params.get('c');
+
+            if (c) {
+                document.getElementById('concentracao').value = 'custom';
+                document.getElementById('mgCustom').value = c;
+                alternarCampoCustom();
+            } else if (s) {
+                document.getElementById('concentracao').value = s;
+            }
+            if (d) document.getElementById('gotasInput').value = d;
+            if (d && (s || c)) calcular();
         });
 
         // Enter dispara cálculo
