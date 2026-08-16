@@ -22,9 +22,10 @@ Blog pessoal da **Bruna Oliveira** em `https://blog.brunaoliveira.com.br` — es
 
 ## 📝 ARTIGOS
 
-**Publicados (2):**
+**Publicados (3):**
 1. `posts/sibo-o-que-e-sintomas.html` — **SIBO: o que é, sintomas e como identificar** (1 ago 2026)
 2. `posts/como-fazer-super-iogurte-l-reuteri.html` — **Super-Iogurte de L. reuteri: receita completa** (2 ago 2026) — baseado na receita oficial do Dr. Davis, adaptada ao Brasil
+3. `posts/sono-e-longevidade.html` — **Sono e Longevidade: a ciência de dormir para viver mais** (16 ago 2026) — primeiro artigo da categoria Sono & Recuperação
 
 **Em breve (8, páginas placeholder criadas):**
 - `posts/endotoxemia-lps-permeabilidade-intestinal.html` — Endotoxemia por LPS
@@ -68,10 +69,10 @@ blog-bruna/
 
 ## 📝 RASCUNHOS (ainda não publicados como post HTML)
 
-1. `rascunhos/sono-e-longevidade.md` — **Sono & Longevidade: análise científica e prática** (16 ago 2026)
-   - Rascunho Markdown completo, com referências verificáveis (Cappuccio 2010, Xie/Nedergaard 2013, Walker *Why We Sleep*, Qian/JACC 2023, etc.)
-   - **Atenção:** o texto de origem citava "Dr. Jeff Alex / Doutor do Sono" — fonte não verificável; foi substituído por Matthew Walker. Confirmar autoria/originalidade antes de publicar.
-   - Próximo passo: converter para `posts/<slug>.html` (template do post SIBO/iogurte) e ativar a categoria **Sono & Recuperação** na home.
+1. ~~`rascunhos/sono-e-longevidade.md`~~ → **PUBLICADO** como `posts/sono-e-longevidade.html` (16 ago 2026)
+   - Rascunho Markdown completo mantido como referência, com referências verificáveis (Cappuccio 2010, Xie/Nedergaard 2013, Walker *Why We Sleep*, Qian/JACC 2023, Breus *The Power of When*).
+   - **Nota de fontes:** o texto de origem citava "Dr. Jeff Alex / Doutor do Sono" — fonte incorreta; corrigida para **Dr. Michael Breus** ("The Sleep Doctor"), com Matthew Walker como referência complementar.
+   - Categoria **Sono & Recuperação** ativada na home (card agora linka para o post).
 
 ## 🔲 PENDÊNCIAS / IDEIAS FUTURAS
 

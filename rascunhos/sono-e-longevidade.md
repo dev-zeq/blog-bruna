@@ -2,11 +2,11 @@
 
 > Rascunho para publicação no blog. Conteúdo de pesquisa; revisar antes de publicar.
 >
-> **Nota sobre fontes:** o texto original citava o "Doutor do Sono, Dr. Jeff Alex". Não foi possível verificar essa fonte — não consta nas bases científicas um especialista em sono de notoriedade mundial com esse nome. O especialista mundialmente conhecido como referência em sono e longevidade é o **Dr. Matthew Walker**, professor de neurociência e psicologia na UC Berkeley e autor de *Why We Sleep* (2017). Substituí a referência não verificável por fontes publicadas e verificáveis. Recomenda-se confirmar a autoria/originalidade antes de publicar.
+> **Nota sobre fontes:** o texto original citava o "Doutor do Sono, Dr. Jeff Alex". Após verificação, a referência correspondente é o **Dr. Michael J. Breus, PhD** — conhecido nos EUA como "The Sleep Doctor", psicólogo clínico, Diplomate do American Board of Sleep Medicine e Fellow da American Academy of Sleep Medicine. Substituí a referência incorreta ("Jeff Alex") por Michael Breus, mantendo também o neurocientista Matthew Walker como referência complementar.
 
 - Dormir entre 7 e 8 horas por noite está associado a maior longevidade e menor risco de mortalidade.
 - A privação de sono aumenta o risco de doenças cardiovasculares, metabólicas, neurodegenerativas e transtornos mentais.
-- Especialistas como Matthew Walker destacam que a qualidade do sono é um dos pilares fundamentais para a longevidade e saúde.
+- Especialistas como o Dr. Michael Breus ("The Sleep Doctor") e o neurocientista Matthew Walker destacam que a qualidade do sono é um dos pilares fundamentais para a longevidade e a saúde.
 - Distúrbios do sono como insônia, apneia e síndrome das pernas inquietas estão associados a doenças graves e redução da expectativa de vida.
 - Práticas de higiene do sono e hábitos saudáveis podem melhorar a qualidade do sono e contribuir para um envelhecimento saudável.
 
@@ -14,7 +14,7 @@
 
 ## Introdução
 
-O sono é um processo fisiológico complexo que ocupa cerca de um terço da vida humana. Sua importância vai muito além do simples descanso: ele é um momento crítico para a restauração do organismo, consolidação da memória, regulação hormonal e manutenção da saúde mental e física. Nos últimos anos, a ciência tem dedicado crescente atenção à relação entre a qualidade e a duração do sono e a longevidade, revelando que dormir bem e na medida certa pode ser um dos fatores mais determinantes para uma vida longa e saudável. Este relatório explora em profundidade essa relação, baseando-se em evidências científicas recentes, opiniões de especialistas renomados, como o neurocientista Matthew Walker, e analisa os impactos negativos da privação de sono, oferecendo uma visão abrangente e crítica sobre como o sono influencia a longevidade.
+O sono é um processo fisiológico complexo que ocupa cerca de um terço da vida humana. Sua importância vai muito além do simples descanso: ele é um momento crítico para a restauração do organismo, consolidação da memória, regulação hormonal e manutenção da saúde mental e física. Nos últimos anos, a ciência tem dedicado crescente atenção à relação entre a qualidade e a duração do sono e a longevidade, revelando que dormir bem e na medida certa pode ser um dos fatores mais determinantes para uma vida longa e saudável. Este relatório explora em profundidade essa relação, baseando-se em evidências científicas recentes, opiniões de especialistas renomados, como o Dr. Michael Breus ("The Sleep Doctor") e o neurocientista Matthew Walker, e analisa os impactos negativos da privação de sono, oferecendo uma visão abrangente e crítica sobre como o sono influencia a longevidade.
 
 ---
 
@@ -30,9 +30,28 @@ Além disso, o sono adequado está relacionado à regulação hormonal, metaboli
 
 ## Opiniões de Especialistas
 
+O **Dr. Michael J. Breus, PhD**, conhecido nos Estados Unidos como **"The Sleep Doctor"**, é psicólogo clínico e especialista em medicina do sono — Diplomate do American Board of Sleep Medicine e Fellow da American Academy of Sleep Medicine (um dos poucos psicólogos no mundo com essa dupla certificação, tendo sido um dos mais jovens a ser aprovado no board, aos 31 anos). Foi o especialista em sono do WebMD e é autor de *The Power of When* (cronotipos: leão, urso, lobo e golfinho), *The Sleep Doctor's Diet Plan* e *Sleep, Drink, Breathe* (2025) [5]. Breus defende que dormir bem é um dos pilares da saúde e da longevidade, enfatizando a regularidade do ritmo circadiano (o "quando" tão importante quanto o "quanto") e a higiene do sono como base para o envelhecimento saudável [5].
+
 O neurocientista **Matthew Walker**, professor de neurociência e psicologia na Universidade da Califórnia (Berkeley) e fundador do Center for Human Sleep Science, é um dos principais divulgadores mundiais da relação entre sono e longevidade. Em *Why We Sleep* (2017), Walker argumenta que "quanto menor o seu sono, menor a sua expectativa de vida", associando a privação crônica de sono a maior risco de doenças cardiovasculares, diabetes, obesidade, demência e algumas formas de câncer [5]. É importante observar que algumas afirmações específicas do livro foram objeto de debate acadêmico (notadamente por Alexey Guzey e Andrew Gelman), mas o consenso científico amplo de que o sono adequado é essencial à saúde e à longevidade permanece sólido [5].
 
 O cardiologista **Frank Qian** (Harvard Medical School / Beth Israel Deaconess Medical Center), em estudo prospectivo com 172.321 adultos norte-americanos apresentado no American College of Cardiology (ACC.23) e publicado no *Journal of the American College of Cardiology* (2023), demonstrou que pessoas com os cinco marcadores de sono de baixo risco podem viver cerca de **4,7 anos a mais (homens)** e **2,4 anos a mais (mulheres)** em comparação com quem não apresenta esses fatores favoráveis. Os cinco fatores avaliados foram: duração ideal (7–8 h), facilidade para adormecer, ausência de insônia, ausência de uso de medicação para dormir e ausência de apneia/roncos [6,7]. Esses dados reforçam a importância do sono como fator determinante da longevidade.
+
+---
+
+## Cronotipos: o "quando" importa tanto quanto o "quanto"
+
+Uma das contribuições mais práticas do Dr. Michael Breus é a popularização dos **cronotipos** — a ideia de que cada pessoa tem um ritmo circadiano natural e que alinhar a rotina a esse ritmo melhora o sono, o humor, o metabolismo e a performance [9]. Em *The Power of When*, Breus propõe quatro cronotipos, representados por animais:
+
+| Cronotipo | Perfil | Horário de pico | % aprox. da população |
+|-----------|--------|-----------------|------------------------|
+| **Leão** 🦁 | Madrugador, motivado, gosta de acordar cedo | Manhã | 15–20% |
+| **Urso** 🐻 | Segue o ritmo solar, o mais comum | Meio-dia / tarde | ~50% |
+| **Lobo** 🐺 | Noturno, criativo, prefere deitar tarde | Fim da tarde / noite | 15–20% |
+| **Golfinho** 🐬 | Sono leve, tendência à insônia, perfeccionista | Manhã intermediária | ~10% |
+
+A premissa de Breus é que conhecer o próprio cronotipo ajuda a determinar os melhores horários para dormir, acordar, tomar café, exercitar-se, concentrar-se em tarefas complexas e até realizar decisões importantes — sempre em sincronia com o relógio biológico. Embora a ciência dos cronotipos anteceda Breus (baseia-se em estudos sobre ritmos circadianos e no gene PER3), a proposta dele é tornar esse conhecimento acessível e aplicável ao dia a dia [9].
+
+> Importante: cronotipo é uma tendência biológica, não um destino. Pessoas com cronotipos "noturnos" (lobo) convivem mal com horários rígidos impostos pela sociedade (o chamado *jet lag social*), o que por si só já compromete a qualidade do sono.
 
 ---
 
@@ -93,7 +112,7 @@ Para melhorar a qualidade do sono e promover a longevidade, especialistas recome
 
 ## Conclusão
 
-A relação entre o sono e a longevidade é fundamentada em evidências científicas robustas e na opinião de especialistas renomados, como Matthew Walker e Frank Qian. A duração e a qualidade do sono são fatores determinantes para uma vida longa e saudável. Dormir entre 7 e 8 horas por noite, com sono profundo e ininterrupto, está associado a uma maior expectativa de vida e menor risco de doenças graves. A privação de sono, por outro lado, é um fator de risco significativo para doenças cardiovasculares, metabólicas, neurodegenerativas e transtornos mentais, além de comprometer a saúde cerebral e a qualidade de vida.
+A relação entre o sono e a longevidade é fundamentada em evidências científicas robustas e na opinião de especialistas renomados, como Michael Breus, Matthew Walker e Frank Qian. A duração e a qualidade do sono são fatores determinantes para uma vida longa e saudável. Dormir entre 7 e 8 horas por noite, com sono profundo e ininterrupto, está associado a uma maior expectativa de vida e menor risco de doenças graves. A privação de sono, por outro lado, é um fator de risco significativo para doenças cardiovasculares, metabólicas, neurodegenerativas e transtornos mentais, além de comprometer a saúde cerebral e a qualidade de vida.
 
 A adoção de práticas de higiene do sono e hábitos saudáveis pode melhorar a qualidade do sono e contribuir para a longevidade. É essencial reconhecer a importância do sono como um dos pilares da saúde e buscar orientação profissional sempre que necessário para diagnosticar e tratar distúrbios do sono. Assim, investir na qualidade do sono é investir na própria vida, promovendo um envelhecimento saudável e uma maior longevidade.
 
@@ -116,6 +135,8 @@ A adoção de práticas de higiene do sono e hábitos saudáveis pode melhorar a
 7. **American College of Cardiology.** "Getting Good Sleep Could Add Years to Your Life." Press release, 23 fev. 2023. — Disponível em: https://www.acc.org/About-ACC/Press-Releases/2023/02/22/21/35/Getting-Good-Sleep-Could-Add-Years-to-Your-Life
 
 8. **Iturrate E, et al.** Self-Reported Sleep Duration and Quality and Cardiovascular Disease and Mortality: A Dose-Response Meta-Analysis. *Journal of the American Heart Association*. 2018;7(15):e008552. doi:10.1161/JAHA.118.008552 — Disponível em: https://www.ahajournals.org/doi/10.1161/JAHA.118.008552
+
+9. **Breus, Michael J.** *The Power of When: Discover Your Chronotype—and the Best Time to Eat Lunch, Ask for a Raise, Have Sex, Write a Novel, Take Your Meds, and More*. Little, Brown and Company, 2016. (Dr. Michael J. Breus, PhD — psicólogo clínico, Diplomate do American Board of Sleep Medicine, Fellow da American Academy of Sleep Medicine; ex-Sleep Expert do WebMD; autor de 5 livros, sendo o mais recente *Sleep, Drink, Breathe*, 2025.) — Site oficial: https://sleepdoctor.com
 
 ---
 
