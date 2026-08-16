@@ -66,6 +66,13 @@ blog-bruna/
 - Site oficial Dr. Davis: `drdavisinfinitehealth.com` (receitas L. reuteri)
 - Site da Bruna: `brunaoliveira.com.br` (história: atleta, 4 anos, 5 pódios, SC21K 2025, HOAD)
 
+## 📝 RASCUNHOS (ainda não publicados como post HTML)
+
+1. `rascunhos/sono-e-longevidade.md` — **Sono & Longevidade: análise científica e prática** (16 ago 2026)
+   - Rascunho Markdown completo, com referências verificáveis (Cappuccio 2010, Xie/Nedergaard 2013, Walker *Why We Sleep*, Qian/JACC 2023, etc.)
+   - **Atenção:** o texto de origem citava "Dr. Jeff Alex / Doutor do Sono" — fonte não verificável; foi substituído por Matthew Walker. Confirmar autoria/originalidade antes de publicar.
+   - Próximo passo: converter para `posts/<slug>.html` (template do post SIBO/iogurte) e ativar a categoria **Sono & Recuperação** na home.
+
 ## 🔲 PENDÊNCIAS / IDEIAS FUTURAS
 
 - [ ] **Newsletter de verdade** (hoje é placeholder — integrar Buttondown/MailerLite grátis)
