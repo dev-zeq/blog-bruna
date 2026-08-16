@@ -275,6 +275,38 @@ a:hover { text-decoration: underline; }
 .post-nav { max-width: 760px; margin: 36px auto 0; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .post-nav a { font-weight: 600; font-size: 0.92rem; }
 
+/* ---------- Banner conteúdo completo ---------- */
+.banner-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: linear-gradient(135deg, var(--areia, #f5efe2), var(--branco));
+  border: 1px solid rgba(0,0,0,0.06);
+  border-left: 5px solid var(--laranja, #e07a3c);
+  border-radius: 16px;
+  padding: 32px 36px;
+  box-shadow: var(--sombra, 0 4px 16px rgba(0,0,0,0.05));
+}
+.banner-icone { font-size: 2.6rem; line-height: 1; flex-shrink: 0; }
+.banner-texto h2 {
+  font-family: var(--font-titulo);
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  color: var(--verde-800, #1f4d3a);
+  margin-bottom: 8px;
+}
+.banner-texto p {
+  font-size: 0.95rem;
+  color: var(--texto-suave, #5a6b62);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 640px;
+}
+.banner-btn { font-size: 1rem; padding: 13px 28px; }
+@media (max-width: 640px) {
+  .banner-conteudo { flex-direction: column; text-align: center; padding: 24px; }
+  .banner-icone { font-size: 2.2rem; }
+}
+
 /* ---------- CTA newsletter ---------- */
 .cta {
   background: linear-gradient(135deg, var(--verde-800), var(--verde-600));
