@@ -275,6 +275,128 @@ a:hover { text-decoration: underline; }
 .post-nav { max-width: 760px; margin: 36px auto 0; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .post-nav a { font-weight: 600; font-size: 0.92rem; }
 
+/* ---------- Ajustes editoriais: estudo sobre iodo ---------- */
+.post-estudo-iodo .post-body .artigo {
+  max-width: 72ch;
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.post-estudo-iodo .post-body p { margin-bottom: 1.15rem; }
+
+.post-estudo-iodo .post-body h2 {
+  margin-top: 2.8rem;
+  margin-bottom: 0.95rem;
+  line-height: 1.3;
+  font-size: clamp(1.35rem, 2.8vw, 1.7rem);
+  border-bottom: 1px solid var(--cinza-claro);
+  padding-bottom: 0.45rem;
+}
+
+.post-estudo-iodo .post-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.7rem;
+  line-height: 1.35;
+  font-size: clamp(1.08rem, 2.3vw, 1.28rem);
+}
+
+.post-estudo-iodo .post-body h4 {
+  margin-top: 1.55rem;
+  margin-bottom: 0.55rem;
+  color: var(--texto);
+  font-size: 1.03rem;
+  font-weight: 700;
+}
+
+.post-estudo-iodo .post-body ul,
+.post-estudo-iodo .post-body ol { margin-left: 1.4rem; }
+
+.post-estudo-iodo .post-body li {
+  padding-left: 0.15rem;
+  margin-bottom: 0.55rem;
+}
+
+.post-estudo-iodo .post-body a {
+  color: var(--verde-800);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+}
+
+.post-estudo-iodo .post-body blockquote {
+  margin: 1.8rem 0;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid var(--verde-600);
+  background: var(--verde-50);
+  border-radius: 0 10px 10px 0;
+}
+
+.post-estudo-iodo .post-body blockquote p { margin-bottom: 0.6rem; }
+
+.post-estudo-iodo .post-body blockquote footer {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+}
+
+.post-estudo-iodo .post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.3rem 0 1.6rem;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.post-estudo-iodo .post-body thead th {
+  background: #f8fafc;
+  color: var(--verde-800);
+}
+
+.post-estudo-iodo .post-body th,
+.post-estudo-iodo .post-body td {
+  border-bottom: 1px solid var(--borda);
+  padding: 0.62rem 0.7rem;
+  text-align: left;
+  font-size: 0.94rem;
+}
+
+.post-estudo-iodo .post-body tbody tr:nth-child(even) { background: #fcfcfd; }
+.post-estudo-iodo .post-body tbody tr:last-child td { border-bottom: none; }
+
+.post-estudo-iodo .post-body .refs {
+  margin-top: 3rem;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  background: #f8faf8;
+  border: 1px solid var(--cinza-claro);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+}
+
+.post-estudo-iodo .post-body .refs h3 {
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+  font-size: 1.02rem;
+}
+
+.post-estudo-iodo .post-body .refs li { margin-bottom: 0.45rem; }
+
+@media (max-width: 720px) {
+  .post-estudo-iodo .post-body .artigo {
+    max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.78;
+  }
+
+  .post-estudo-iodo .post-body h2 { margin-top: 2.25rem; }
+  .post-estudo-iodo .post-body h3 { margin-top: 1.55rem; }
+  .post-estudo-iodo .post-body th,
+  .post-estudo-iodo .post-body td { font-size: 0.88rem; padding: 0.55rem 0.6rem; }
+}
+
 /* ---------- Banner conteúdo completo ---------- */
 .banner-conteudo {
   display: flex;
