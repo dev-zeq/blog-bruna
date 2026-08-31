@@ -230,7 +230,7 @@ a:hover { text-decoration: underline; }
 
 .post-body {
   background: var(--branco);
-  padding: 44px 0 64px;
+  padding: 44px 20px 64px;
 }
 .post-body .artigo {
   max-width: 760px;
