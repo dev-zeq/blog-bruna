@@ -22,10 +22,11 @@ Blog pessoal da **Bruna Oliveira** em `https://blog.brunaoliveira.com.br` — es
 
 ## 📝 ARTIGOS
 
-**Publicados (3):**
+**Publicados (4):**
 1. `posts/sibo-o-que-e-sintomas.html` — **SIBO: o que é, sintomas e como identificar** (1 ago 2026)
 2. `posts/como-fazer-super-iogurte-l-reuteri.html` — **Super-Iogurte de L. reuteri: receita completa** (2 ago 2026) — baseado na receita oficial do Dr. Davis, adaptada ao Brasil
 3. `posts/sono-e-longevidade.html` — **Sono e Longevidade: a ciência de dormir para viver mais** (16 ago 2026) — primeiro artigo da categoria Sono & Recuperação
+4. `posts/estudo-sobre-iodo-guyeabraham.html` — **Estudo sobre Iodo: A História, a Ciência e a Medição por Guy E. Abraham** (29 ago 2026) — tradução dos 3 primeiros artigos do Iodine Project do Dr. Guy E. Abraham; primeiro artigo da nova categoria Iodo & Tireoide; card e categoria adicionados ao `index.html`
 
 **Em breve (8, páginas placeholder criadas):**
 - `posts/endotoxemia-lps-permeabilidade-intestinal.html` — Endotoxemia por LPS

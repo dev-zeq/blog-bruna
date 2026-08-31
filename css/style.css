@@ -189,6 +189,7 @@ a:hover { text-decoration: underline; }
 .tag.fermentados { background: #fff7ed; color: #9a3412; border-color: #fed7aa; }
 .tag.dieta { background: #fdf4ff; color: #86198f; border-color: #f5d0fe; }
 .tag.estetica { background: #fff1f2; color: #be123c; border-color: #fecdd3; }
+.tag.iodo { background: #f5f3ff; color: #5b21b6; border-color: #ddd6fe; }
 
 .post-card .data { font-size: 0.78rem; color: var(--texto-suave); }
 
